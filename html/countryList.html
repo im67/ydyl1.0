@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>国家列表</title>
+</head>
+<body>
+	<div class = "mainPage">
+		<div class = "worldbtn">
+			<a href = "#countryList"><button class = "nav_btn" id = "nationList">国家列表</button></a>
+			<a href = "#dataView"><button class = "nav_btn" id = "dataView">数据视图</button></a>
+		</div>
+		<div class = "leftNav">
+		<nav class = "sidenav">
+						<ul class = "navMenu">
+				<li class = "firstnav"><img class = "navico" src = "../images/navico.png"><p>亚洲与台港澳地区</p>
+					<ul class ="secondaryNav">
+						<li><a href = "javascript:;">阿尔巴尼亚</a></li>
+						<li><a href = "javascript:;">阿富汗</a></li>
+						<li><a href = "javascript:;">阿联酋</a></li>
+						<li><a href = "javascript:;">阿曼</a></li>
+						<li><a href = "javascript:;">阿塞拜疆</a></li>
+						<li><a href = "javascript:;">埃及</a></li>
+						<li><a href = "javascript:;">爱沙尼亚</a></li>
+						<li><a href = "javascript:;">巴基斯坦</a></li>
+					</ul>
+				</li>
+
+				<li class = "firstnav"><img class = "navico" src = "../images/navico.png"><p>西亚非洲</p>
+					<ul class ="secondaryNav">
+						<li><a href = "javascript:;">刚果</a></li>
+						<li><a href = "javascript:;">土耳其</a></li>
+						<li><a href = "javascript:;">南非</a></li>
+						<li><a href = "javascript:;">刚果(金)</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<div id = "rightPage">
+	</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.navMenu li').not(':first').find('ul').hide();
+		$('.firstnav *').not('ul').on('click',function(){
+			$(this).parent().find('ul').slideToggle();
+
+		})
+	})
+
+$(document).ready(function(){
+	$("#rightPage").load("nationDetails.html",function(responseTxt,statusTxt){
+        if(statusTxt=="success"){
+           console.log("加载成功");
+        }
+    })
+	})
+</script>
+</html>

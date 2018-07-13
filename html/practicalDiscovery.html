@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实践探索库</title>
+</head>
+<body>
+	<div class = "mainPage">
+		<!----------轮播图开始------------------->
+		<div class = "view_top">
+			<ul id = "disbanner">
+				<li v-for = "item of list"><disb :url = "item.url" :viewimgsrc = "item.viewimgsrc" :title = "item.title" :introduce = "item.introduce"></disb></li>
+			</ul>
+		</div>
+		<ul id = "disBannerChange">
+			<li class = "onfocus"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<!-----------轮播图结束------------------>
+        <!-----------新闻模块开始---------------->
+                 <div class = "dis_middle">
+         	<div class = "viewPageLeft">
+         	<div class = "h1_middle">
+            <div class  = "h1_nav">
+                <button class = "h1_zg nselect">丝路中国</button> | 
+                <button class = "h1_gj nselect">丝路国际</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+            <div class = "slzg">
+                <ul id = "slzgnews" class = "viewnews">
+                	<li v-for = "item of list"><slzgnews :newsurl = "item.newsurl" :title = "item.title" :time = "item.time" :source = "item.source" :introduce = "item.introduce"></slzgnews></li>
+                </ul>
+        </div>
+        <div class = "slgj">
+                <ul id = "slgjnews" class = "viewnews">
+                	<li v-for = "item of list"><slgjnews :newsurl = "item.newsurl" :title = "item.title" :time = "item.time" :source = "item.source" :introduce = "item.introduce"></slgjnews></li>
+                </ul>
+        </div>
+
+        </div>
+            </div>
+
+                     <div class = "viewPageRight">
+            <div class = "right_top">
+                <div class = "h1_nav">
+                <button class = "nselect btnSelect">热门搜索观点</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+            <a href = "#"><img class = "imgs" src = "../images/pd1.jpg"></a>
+            <ul id = "hotsearchview">
+                <li v-for = "item of list"><a :href = "item.url"><p>{{item.title}}</p></a></li>
+            </ul>
+            </div>
+
+            <div class = "right_middle">
+                <div class = "h1_nav">
+                <button class = "nselect btnSelect">精彩推荐</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+            <a href = "#">
+                <img class = "imgs1" src = "../images/hotsearch.png">
+                <p class = "imgp">韩正主持召开“一带一路小组会议”</p>        
+            </a>
+            <ul id = "jctj">
+                <li v-for = "item of list"><a :href = "item.url"><p>{{item.title}}</p></a></li>
+            </ul>
+            </div>
+         </div> 
+        </div>
+
+   </div>
+		<!------------VUE模板------------------------------>
+		<template id = "d1">
+		<div>
+			<a :href = "url">
+				<img class = "vimg" :src = "viewimgsrc">
+				<div class = "vd">
+					<h3 class = "vh3">{{title}}</h3>
+					<p class = "vp">{{introduce}}</p>
+				</div>
+			</a>
+		</div>
+	</template>
+
+	<template id = "d2">
+		<div>
+			<a :href = "newsurl"><h4 class = "v2_h4">{{title}}</h4></a>
+			<p class = "v2_pt">{{time}}</p> | <p class = "v2_ps">{{source}}</p>
+			<p class = "v2_pi">{{introduce}}</p>
+		</div>
+	</template>
+		<!------------VUE模板结束-------------------------->
+</body>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+        $('.h1_zg').addClass("btnSelect"); 
+        $('.slzg').show();
+        $('.slgj').hide();
+    })
+
+   $('.h1_zg').mouseover(function(){
+        $('.h1_zg').addClass("btnSelect");
+        $('.h1_gj').removeClass("btnSelect");
+        $(".slzg").show();
+        $(".slgj").hide();
+    });
+
+
+   $('.h1_gj').mouseover(function(){
+        $('.h1_gj').addClass("btnSelect");
+        $('.h1_zg').removeClass("btnSelect");
+        $(".slgj").show();
+        $(".slzg").hide();
+    });
+
+	var db = {
+		template:'#d1',
+		props:['url','viewimgsrc','title','introduce']
+	}
+
+	var slnews = {
+		template:'#d2',
+		props:['newsurl','title','time','source','introduce']
+	}
+
+
+	var v1 = new Vue({
+		el:'#disbanner',
+		data:{
+			list:[
+			{
+				url:'#',
+				viewimgsrc:'../images/v2.jpg',
+				title:'蒙内铁路累计发送旅客近138万人次 创造近5万个岗位',
+				introduce:'截至2018年6月10日，蒙内铁路累计发送旅客近138万人次，平均上座率超过95%，为肯尼亚创造近5万个工作岗位，受到肯尼亚政府和民间高度认可。'
+			},
+			{
+				url:'#',
+				viewimgsrc:'../images/v3.jpg',
+				title:'探访中老友谊学校',
+				introduce:'中老友谊学校始建于2006年，采用中老双语教学，目前开设了幼儿园、小学部和中学部。'
+			},{
+				url:'#',
+				viewimgsrc:'../images/v4.jpg',
+				title:'中国援斐斯丁森桥改善首都苏瓦交通状况',
+				introduce:'中国援斐斯丁森桥位于斐济首都苏瓦市中心，自今年初建成通车以来，有效缓解了苏瓦市区的交通堵塞状况，极大便利了市民出行，受到民众欢迎。 '
+			},
+			{
+				url:'#',
+				viewimgsrc:'../images/v1.jpg',
+				title:'中刚合作项目巡礼',
+				introduce:'刚果（布）是中非产能合作先行先试示范国家之一，中刚近年来通过密切合作实施了中刚友好医院、体育中心、沿河大道斜拉桥等诸多项目，其中既有政府间合作，也有中方提供贷款和刚方融资等合作形式。此外两国还在金融领域深化合作，我国首次与刚方通过合资组建的中刚非洲银行被当地人亲切地称为“刚果人自己的商业银行”。 '
+			},
+			{
+				url:'#',
+				viewimgsrc:'../images/v2.jpg',
+				title:'蒙内铁路累计发送旅客近138万人次 创造近5万个岗位',
+				introduce:'截至2018年6月10日，蒙内铁路累计发送旅客近138万人次，平均上座率超过95%，为肯尼亚创造近5万个工作岗位，受到肯尼亚政府和民间高度认可。'
+			},
+			]
+		}
+	})
+
+	var v1 = new Vue({
+		el:'#slzgnews',
+		data:{
+			list:[{
+				newsurl:'#',
+				title:'2018年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			},
+			{
+				newsurl:'#',
+				title:'2018年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			},
+			{
+				newsurl:'#',
+				title:'2018年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			},{
+				newsurl:'#',
+				title:'2018年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			},
+			{
+				newsurl:'#',
+				title:'2018年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			}]
+		}
+	})
+
+	var v1 = new Vue({
+		el:'#slgjnews',
+		data:{
+			list:[{
+				newsurl:'#',
+				title:'2017年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			},
+			{
+				newsurl:'#',
+				title:'2017年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			},
+			{
+				newsurl:'#',
+				title:'2017年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			},{
+				newsurl:'#',
+				title:'2017年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			},
+			{
+				newsurl:'#',
+				title:'2017年1-4月我对“一带一路”沿线国家投资合作情况',
+				time:'2018-06-27 17:23:35',
+				source:'来源：商务部合作司',
+				introduce:'2018年1-4月，我国企业对“一带一路”沿线的53个国家合计非金融类直接投资46.7亿美元，同比增长17.3%，占同期总额的13.1%，主要投向新加坡、老挝、马来西亚、越南、印度尼西亚、巴基斯坦、泰国和缅甸等国家。'
+			}]
+		}
+	})
+
+	var h3 = new Vue({
+        el:'#hotsearchview',
+        data:{
+            list:[{
+                url:'#',
+                title:'·坚决防止滥用“一带一路”概念聚...'
+            },
+            {
+                url:'#',
+                title:'·《中国的北极政策》'
+            }]
+        }
+    })
+
+    	var h4 = new Vue({
+        el:'#jctj',
+        data:{
+            list:[{
+                url:'#',
+                title:'·中巴经济走廊最大交通基础设施项目...'
+            },
+            {
+                url:'#',
+                title:'·印媒：中国修建的汉班托塔港不是无…'
+            },
+            {
+                url:'#',
+                title:'·巴基斯坦4月份发电量增48% 新增电...'
+            },
+            {
+                url:'#',
+                title:'·中企承建外高加索地区最长铁路隧道…'
+            },
+            {
+                url:'#',
+                title:'·好事不愿说出事不敢说 中企“走出去...'
+            }]
+        }
+    })
+
+
+    	 var h11 = new Vue({
+        el:'#imgnews_gj',
+        data:{
+            url:'#',
+            imgurl: '../images/gj.jpg',
+            title:'第72届联大主席：“一带一路”助推联合国可持续发展议程',
+            introduce:'“中国经济增长带来的益处并不局限于其国界。作为一个奉行多边主义的国家，中国正在通过“一带一路”倡议分享全球经济发展和科技进步带来的成果...'
+        }
+    })
+
+	var vimg = new Vue({
+		el:'#disbanner',
+		components:{
+			'disb':db
+		}
+	})
+
+
+	var slzg = new Vue({
+		el:'#slzgnews',
+		components:{
+			'slzgnews':slnews
+		}
+	})
+
+
+	var slgj = new Vue({
+		el:'#slgjnews',
+		components:{
+			'slgjnews':slnews
+		}
+	})
+
+</script>
+</html>

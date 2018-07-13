@@ -1,0 +1,739 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,hr,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p,canvas{padding:0; margin:0;}
+
+@font-face{
+	font-family:"MicrosoftYaHei";
+	src: url("../font/MicrosoftYaHei.ttf");
+}
+
+*{
+	outline:none;
+}
+
+template{
+	display: none;
+}
+
+body{
+	font-family: "PingFang SC",Lantinghei SC,"Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei","SimSun","sans-serif";
+}
+
+a{
+	text-decoration: none;
+	color:#000;
+}
+
+button{
+	outline:none;
+	cursor:pointer;
+}
+
+
+
+.mainPage{
+	position:relative;
+	margin:auto;
+	width:1100px;
+}
+
+.top1{
+	background: #EBEBEB;
+	height:24px;
+}
+
+.top1>*{
+	display: inline;
+}
+
+.top1>p{
+	line-height: 24px;
+	margin-left: 88px;
+	font-size: 10px;
+}
+
+.login{
+	
+	margin-left:700px;
+}
+
+
+.top1>.login>button{
+	margin-right:0px;
+	font-size:10px;
+	font-color:#006FB7;
+	border: none;
+	background-color:#EBEBEB;
+	outline:none;
+	cursor:pointer;
+
+}
+
+
+.YDYL{
+	
+	display: inline-block;
+	padding-top:20px;
+}
+
+
+.YDYL>img{
+	vertical-align:middle;
+	width:85px;
+	height:85px;
+}
+
+.YDYL>div{
+	display: inline-block;
+	vertical-align:middle;
+	padding-left: 15px;
+}
+
+.YDYL>div>h1{
+	font-size: 28px;
+}
+
+.YDYL>div>p{
+	font-size: 14px;
+}
+
+.top2>*{
+	display: inline-block;
+}
+
+.search{
+	padding-left: 270px;
+}
+
+#searchText{
+	width:240px;
+	height:30px;
+	padding-left: 20px;
+	padding-right:20px;
+	border:1px solid #CCC;
+	background: url(../images/search.png) center right 15px no-repeat;
+	border-radius: 5px;
+	outline: none;
+}
+
+
+#nav{
+	margin-top:20px;
+	text-align: center;
+	background-color:#F8F8F8;
+	border-bottom:3px solid #006FB7;
+}
+
+#nav>li{
+	display: inline-block;
+	list-style: none;
+	width: 9.5%;
+	height:53px;
+	line-height: 53px;
+
+}
+
+#nav>li>a>div{
+	width:104px;
+	color:black;
+}
+
+
+
+
+
+.footer{
+	height:100px;
+	background-color:#006FB7;
+	margin-top: 24px;
+	text-align: center;
+}
+
+.footer>div{
+	position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 30px;
+    color:#fff;
+}
+
+
+.nav_btn{
+	border: none;
+	background-color:#fff;
+	cursor:pointer;
+	outline: none;
+	height:50px;
+	font-size: 16px;
+	width:100px;
+	margin-top: 10px;
+}
+
+.topID,.middle1ID,.middle2ID{
+	position: relative;
+	padding-bottom: 40px;
+	border-bottom: 2px solid #eee;
+}
+
+.topID>p{
+    font-size: 12px;
+    color:#57453F;
+    margin-left: 28px;
+    margin-top:16px;
+}
+
+#filterBtn{
+	display: inline-block;
+	width:100px;
+	height:28px;
+	float:right;
+	margin-top:40px;
+	background-color: #006FB7;
+	border-radius: 4px;
+	border: none;
+	color:#fff;
+}
+
+.timeRange{
+	display: inline-block;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+.selectbox{
+	width:15%;
+    margin-left: 32px;
+    margin-top: 25px;
+}
+
+.selectbox>select{
+	width:160px;
+	height:28px;
+	border-radius:4px;
+	margin-top: 8px;
+}
+
+.selectbox>p{
+	font-size: 12px;
+}
+
+.selectbox>select{
+	width:160px;
+	height:28px;
+	border-radius:4px;
+	margin-top: 8px;
+}
+
+.selectbox>input{
+	width:160px;
+	height: 28px;
+	border:1px solid #999;
+	border-radius:4px;
+	margin-top: 8px;
+	outline:none;
+	padding-left: 10px;
+}
+
+
+.middle2ID>div,.middle1ID>div{
+	display: inline-block;
+}
+
+
+.index>input{
+	width:160px;
+	height: 28px;
+	border:1px solid #999;
+	border-radius:4px;
+	margin-top: 8px;
+	outline:none;
+	padding-left: 10px;
+}
+
+.index>p{
+	font-size: 12px;
+}
+
+#chartSwitching{
+	float:right;
+	width:100px;
+	height:28px;
+	background-color: #FFF;
+	border-radius: 4px;
+	border: 1px solid #000;
+	color:#000;
+	margin-top: 29px;
+}
+
+.chartbtn{
+	width:68px;
+	height:28px;
+	border-radius: 4px;
+	border:1px solid #006FB7;
+	background-color:#fff;
+	color:#006FB7;
+	margin-left:22px;
+}
+
+.project>input{
+	width:160px;
+	height: 28px;
+	border:1px solid #999;
+	border-radius:4px;
+	margin-top: 8px;
+	outline:none;
+	padding-left: 10px;
+}
+
+.investmentSelect{
+	width:200px;
+	height:28px;
+	font-size: 12px;
+	padding-left:5px;
+	border-radius:4px;
+	border:1px solid #000;
+}
+
+
+.sjsx{
+	font-size: 14px;
+	padding-top:16px;
+}
+
+.sjsx>div{
+	display: inline-block;
+	width:45%;
+	margin-top: 30px;
+	text-align: right;
+}
+
+ .pager-wrapper {
+        margin-top: 15px;
+        text-align: center;
+    }
+   .pager-pages {
+        display: inline-block;
+        height: 28px;
+        font-size: 0;
+    }
+    .pager-wrapper a,
+    .pager-wrapper strong {
+        display: inline-block;
+        min-width: 28px;
+        height: 28px;
+        border-radius: 4px;
+        margin: 0 2px;
+        font-size: 12px;
+        line-height: 28px;
+        text-align: center;
+        color: #222;
+        cursor:pointer;
+    }
+    .pager-wrapper a {
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        background-color: #fff;
+        transition: all .2s;
+    }
+    .pager-wrapper a:hover {
+            color: rgb(33,150,243);
+            border-color: rgb(33,150,243);
+    }
+    .pager-wrapper .active {
+        background-color: rgb(33,150,243);
+        color: #fff;
+        border-color: rgb(33,150,243);
+    }
+    .pager-wrapper .active:hover {
+            color: #fff;
+    }
+    .pager-jump {
+        display: inline-block;
+        height: 28px;
+        margin-left: 20px;
+    }
+    .pager-jump span {
+        line-height: 28px;
+    }
+    .pager-jump em {
+        margin: 0 5px;
+        font-style: normal;
+    }
+    .pager-jump .jump-input {
+        width: 60px;
+        height: 28px;
+        padding-left: 10px;
+        border: 1px solid #ddd;
+        font-size: 12px;
+        vertical-align: top;
+    }
+    .pager-jump .jump-input:focus {
+        border-color: rgb(33,150,243);
+    }
+
+    .submit{
+    	width:45px;
+    }
+
+
+.pi1{
+	display: inline-block;
+	font-size: 16px;
+	color:#006FB7;
+}
+
+
+.pi2{
+	display: inline-block;
+	font-size: 12px;
+	color:#999;
+	float:right;
+}
+
+.iviewnews>li{
+	padding:24px 0 24px 0;
+	border-bottom: 1px dashed #999; 
+}
+
+#yqlj>li{
+	padding:5px 0 5px 0;
+}
+
+.investmentBtn{
+	width: 100px;
+	height: 28px;
+	border:none;
+	border-radius: 4px;
+	background-color:#006FB7;
+	color:#FFF;
+	margin-top: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.btnfield{
+	margin-left: 200px;
+}
+
+
+.leftNav{
+	width: 270px;
+	display: inline-block;
+}
+
+.navMenu>*{
+	font-size: 16px;
+	cursor:pointer;
+}
+.navMenu>li{
+	border-bottom:1px solid #CCC;
+}
+
+.navMenu{
+	color:#666666;
+}
+
+#secondArea{
+	margin-top: 15px;
+	border-top:1px solid #CCC;
+}
+
+.secondaryNav>li{
+	padding-left: 30px;
+	height: 42px;
+	border-bottom:1px solid #E9E9E9;
+	line-height: 42px;
+}
+
+.navico{
+	width:16px;
+	height:16px;
+	display: inline-block;
+}
+
+
+
+.firstnav>p{
+	display:inline-block;
+	height:36px;
+}
+
+.firstnav{
+	line-height: 36px;
+}
+
+.secondaryNav{
+	border-top:1px solid #ccc;
+}
+
+#rightPage,.rightChartShow{
+	display: inline-block;
+	width:820px;
+	vertical-align: top;
+
+}
+
+#chartArea{
+	margin-top:50px;
+}
+
+.topimg{
+	width: 1100px;
+	height: 210px;
+}
+
+.expertSelect{
+	width: 160px;
+	height: 28px;
+	border-radius: 4px;
+	border:1px solid #000;
+}
+
+
+.expertText{
+	width:300px;
+	height: 28px;
+	border:none;
+	border-radius: 4px;
+	border:1px solid;
+	margin-left: 24px;
+}
+
+.expertBtn{
+	width:64px;
+	height: 28px;
+	color:#FFF;
+	border:none;
+	border-radius: 4px;
+	background-color:#006FB7;
+	margin-left: 24px;
+}
+
+#expertsearch{
+	position:relative;
+	margin-top:30px;
+}
+
+.eimg{
+	display: inline-block;
+	width:130px;
+	height: 156px;
+}
+
+.ed{
+	display: inline-block;
+	width:500px;
+	vertical-align: top;
+	margin-left: 30px;
+}
+
+
+.eh3{
+	color:#000;
+	font-size: 24px;
+}
+
+.ep{
+	color:#999999;
+	font-size: 12px;
+	margin-top:16px;
+	text-indent: 2em;
+}
+
+#expertinfo{
+	margin-top:20px;
+}
+
+#expertinfo>li{
+	padding-top:20px;
+	padding-bottom:20px;
+	border-bottom:0.5px dashed #ccc;
+}
+
+#zjtj>li{
+	padding:5px 0px 5px 0px;
+}
+
+
+.expsecondaryNav{
+	padding-top:10px;
+	border-bottom:1px solid #ccc;
+	padding-bottom:10px;
+}
+
+
+.expsecondaryNav>:first-child>a{
+	color:#006FB7;
+}
+
+.expsecondaryNav>li{
+	display: inline-block;
+	height:30px;
+	font-size: 16px;
+}
+
+
+
+.expimg{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.expinfo{
+	display: inline-block;
+	width: 900px;
+	margin-left: 30px;
+}
+
+.expart{
+	font-size: 14px;
+	margin-top:20px;
+}
+
+.outResource,.ourResource{
+	margin-top:20px;
+}
+
+
+.nextLiterature,.nextexp{
+	text-align: center;
+	margin-top:30px;
+	font-size: 18px;
+}
+
+
+
+.literatureInfo{
+	width:70%;
+}
+
+.literatureInfo>p{
+	width:45%;
+	display: inline-block;
+	font-size: 14px;
+	font-color:#57453F;
+	line-height: 30px;
+}
+
+.literatureInfo>div{
+	width:45%;
+	display: inline-block;
+}
+
+
+.literatureBtn{
+	height:16px;
+	width:64px;
+	font-size: 10px;
+	color:#FFF;
+	background-color: #006FB7;
+	border:none;
+	outline: none;
+	border-radius:4px;
+	cursor:pointer;
+}
+
+
+.academicTitle{
+	font-size:24px;
+	margin-top:31px;
+	color:#006FB7;
+}
+
+
+.literatureInfo{
+	margin-top: 11px;
+}
+
+.summary{
+	margin-top: 65px;
+	line-height: 30px;
+}
+
+.authorInfo{
+	margin-top: 52px;
+}
+
+
+
+.summary>div>p{
+	color:#006FB7;
+}
+
+#news{
+	text-align: center;
+}
+
+.d_h2{
+	width: 760px;
+	margin:auto;
+	margin-top:30px;
+}
+
+
+.d_section{
+	text-indent: 2em;
+	padding-top:25px;
+	padding-bottom: 25px;
+	text-align: left;
+}
+
+
+.bottomID{
+	padding-top: 30px;
+}
+
+.nationDetails{
+	width: 800px;
+}
+
+.countryinfo{
+	margin-top: 30px;
+}
+
+.countryinfo>*{
+	display: inline-block;
+}
+
+.countryinfo>img{
+	width: 80px;
+	height: 52px;
+}
+
+.countryinfo>p{
+	width: 700px;
+	font-size: 12px;
+	text-indent:2em;
+}
+
+.modelbox{
+	padding-bottom: 20px;
+	width:260px;
+	display: inline-block;
+}
+
+.modelbox>ul{
+	padding-top: 18px;
+	line-height: 25px;
+}
+
+.modelimg{
+	padding-top: 28px;
+	display: inline-block;
+	width: 68px;
+	height: 68px;
+}
+.modelp{
+	padding-top: 28px;
+	display: inline-block;
+	font-size: 14px;
+	width: 170px;
+	vertical-align: top;
+}
+
+.modelp2{
+	font-size: 11px;
+}
+
+.nationhr{
+	border:1px dashed #ccc;
+}

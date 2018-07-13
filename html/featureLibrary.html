@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>特色专题库</title>
+</head>
+<body>
+		<div class = "mainPage">
+            <img src="../images/feature.png" alt="">
+		<div class = "topID">
+			<p>选择TIMERANGE</p>
+	    <div class = "timeRange">
+	    	<input value = "1970,2017" id = "timeSelect">
+	    </div>
+	    	<button id = "filterBtn">添加过滤器</button>
+	    </div>
+
+	<div class = "middle2ID">
+            <div class = "selectbox">
+            	<p>组</p>
+            	<select>
+            		<option>贸易</option>
+            		<option>GDP</option>
+            	</select>
+            </div>
+
+            <div class = "selectbox">
+            	<p>域</p>
+            	<select>
+            		<option>作物和牲畜产品</option>
+            		<option>钢铁</option>
+            		<option>石油</option>
+            	</select>
+            </div>
+
+            <div class = "selectbox">
+            	<p>国家/地区</p>
+            	<input type = "text">
+            </div>
+
+            <div class = "selectbox">
+            	<p>指标</p>
+            	<input type = "text">
+            </div>
+
+
+            <div class = "selectbox">
+            	<p>项目</p>
+            	<input type = "text">
+            </div>
+	</div>
+
+	<div class = "bottomID">
+		<button id = "chartSwitching">图表切换</button>
+		<div id="container" style="max-width:1000px;height:370px"></div>
+		<div class = "buttonField">
+			<button id = "download" class = "chartbtn">下载</button>
+			<button id = "print" class = "chartbtn">打印</button>
+			<button id = "export" class = "chartbtn">导出</button>
+			<button id = "share" class = "chartbtn">分享</button>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#timeSelect').jRange({
+			from:1960,
+			to:2050,
+			step:1,
+			format:'%s',
+			width:800,
+			showLabels:true,
+			isRange:true
+		});
+		})
+
+
+        $('#download').click(function () {
+                var chart = $('#container').highcharts();
+                chart.exportChart();
+        });
+
+
+        $('#print').click(function () {
+                var chart = $('#container').highcharts();
+                chart.print();
+        });
+
+        $('#export').click(function(){
+                var chart = $('#container').highcharts();
+                chart.exportChart({type:"image/png"});
+        });
+
+
+       
+</script>
+</html>

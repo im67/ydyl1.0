@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>国家详情</title>
+</head>
+<body>
+	<div class = "nationDetails">
+		<div id = "topInfo">
+         <c-info :countryname = "countryname" :countryflag = "countryflag" :countryintroduce = "countryintroduce"></c-info>
+		</div>
+		<div class = "middlebox">
+			<div class = "modelbox">
+				<div class  = "h1_nav">
+                <button class = "nselect  btnSelect">政治</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+                <div  id = "politics" >
+                <c-model :modelimg = "modelimg" :modelintroduce = "modelintroduce"></c-model>
+            </div>
+                <ul id = "politics1">
+                	<li v-for = "item of list"><c-news :modelurl = "item.modelurl" :modelnews = "item.modelnews"></c-news></li>
+                </ul>
+			</div>
+
+
+			<div class = "modelbox">
+				<div class  = "h1_nav">
+                <button class = "nselect btnSelect">社会</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+                </div>
+                <div  id = "sociology" >
+                <c-model :modelimg = "modelimg" :modelintroduce = "modelintroduce"></c-model>
+            </div>
+                <ul id = "sociology1">
+                	<li v-for = "item of list"><c-news :modelurl = "item.modelurl" :modelnews = "item.modelnews"></c-news></li>
+                </ul>
+			</div>
+
+
+			<div class = "modelbox">
+				<div class  = "h1_nav">
+                <button class = "nselect btnSelect">经济</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+                </div>
+                <div  id = "economy" >
+                <c-model :modelimg = "modelimg" :modelintroduce = "modelintroduce"></c-model>
+            </div>
+                <ul id = "economy1">
+                	<li v-for = "item of list"><c-news :modelurl = "item.modelurl" :modelnews = "item.modelnews"></c-news></li>
+                </ul>
+			</div>
+         
+         <hr class = "nationhr" />
+			<div class = "modelbox">
+				<div class  = "h1_nav">
+                <button class = "nselect btnSelect">历史</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+                </div>
+                <div  id = "history" >
+                <c-model :modelimg = "modelimg" :modelintroduce = "modelintroduce"></c-model>
+            </div>
+                <ul id = "history1">
+                	<li v-for = "item of list"><c-news :modelurl = "item.modelurl" :modelnews = "item.modelnews"></c-news></li>
+                </ul>
+			</div>
+
+
+			<div class = "modelbox">
+				<div class  = "h1_nav">
+                <button class = "nselect btnSelect">外交</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+                </div>
+                <div  id = "diplomacy" >
+                <c-model :modelimg = "modelimg" :modelintroduce = "modelintroduce"></c-model>
+            </div>
+                <ul id = "diplomacy1">
+                	<li v-for = "item of list"><c-news :modelurl = "item.modelurl" :modelnews = "item.modelnews"></c-news></li>
+                </ul>
+			</div>
+
+
+			<div class = "modelbox">
+				<div class  = "h1_nav">
+                <button class = "nselect btnSelect">文化</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+                </div>
+                <div  id = "culture">
+                <c-model :modelimg = "modelimg" :modelintroduce = "modelintroduce"></c-model>
+            </div>
+                <ul id = "culture1">
+                	<li v-for = "item of list"><c-news :modelurl = "item.modelurl" :modelnews = "item.modelnews"></c-news></li>
+                </ul>
+            </div>
+		</div>
+	</div>
+
+
+<!------------------VUE模板------------------------->
+	<template id = "nd1">
+		<div>
+		     <h2>{{countryname}}</h2>
+		     <div class = "countryinfo">
+		     	<img :src = "countryflag" alt = "国家国旗">
+		     	<p>{{countryintroduce}}</p>
+		     </div>
+		</div>
+	</template>
+
+	<template id = "nd2">
+		<div>
+			<img class = "modelimg" :src = "modelimg">
+			<p class = "modelp">{{modelintroduce}}</p>
+		</div>
+	</template>
+
+	<template id = "nd3">
+		<div>
+			<a :href = "modelurl"><p class = "modelp2">{{modelnews}}</p></a>
+		</div>
+	</template>
+
+<!--------------------VUE模板结束------------------------->
+</body>
+
+<script type="text/javascript">
+
+
+	var c1 = {
+		template:'#nd1',
+		props:['countryname','countryflag','countryintroduce']
+	}
+
+
+	var c2 = {
+		template:'#nd2',
+		props:['modelimg','modelintroduce']
+	}
+
+
+	var c3 = {
+		template:'#nd3',
+		props:['modelurl','modelnews']
+	}
+
+    var countryinfo = new Vue({
+    	el:'#topInfo',
+    	components:{
+    		'cInfo':c1
+    	},
+    	data:{
+    		countryname:'巴基斯坦',
+    		countryflag:'../images/flag/bjst.jpg',
+    		countryintroduce:'巴基斯坦位于南亚次大陆的巴基斯坦独立前与印度同为一个国家。1947年印巴分治，分别脱离英国的殖民统治，走上了独立发展的道路。巴基斯坦面积有80多万平方公里，人口达一亿五千万，大多信仰伊斯兰教。巴基斯坦矿产、动植物资源丰富，但经济发展时快时慢。'
+    	}
+    })
+
+    var politics = new Vue({
+    	el:'#politics',
+    	components:{
+    		'cModel':c2
+    	},
+    	data:{
+    		modelimg:'../images/moren.png',
+    		modelintroduce:'“一带一路”税收合作会议在阿斯塔纳开幕'
+    	}
+    })
+
+    var sociology = new Vue({
+    	el:'#sociology',
+    	components:{
+    		'cModel':c2
+    	},
+    	data:{
+    		modelimg:'../images/moren.png',
+    		modelintroduce:'“一带一路”税收合作会议在阿斯塔纳开幕'
+    	}
+    })
+
+
+    var economy = new Vue({
+    	el:'#economy',
+    	components:{
+    		'cModel':c2
+    	},
+    	data:{
+    		modelimg:'../images/moren.png',
+    		modelintroduce:'“一带一路”税收合作会议在阿斯塔纳开幕'
+    	}
+    })
+
+
+    var history = new Vue({
+    	el:'#history',
+    	components:{
+    		'cModel':c2
+    	},
+    	data:{
+    		modelimg:'../images/moren.png',
+    		modelintroduce:'“一带一路”税收合作会议在阿斯塔纳开幕'
+    	}
+    })
+
+
+    var diplomacy = new Vue({
+    	el:'#diplomacy',
+    	components:{
+    		'cModel':c2
+    	},
+    	data:{
+    		modelimg:'../images/moren.png',
+    		modelintroduce:'“一带一路”税收合作会议在阿斯塔纳开幕'
+    	}
+    })
+
+
+    var culture = new Vue({
+    	el:'#culture',
+    	components:{
+    		'cModel':c2
+    	},
+    	data:{
+    		modelimg:'../images/moren.png',
+    		modelintroduce:'“一带一路”税收合作会议在阿斯塔纳开幕'
+    	}
+    })
+
+
+    var politics1 = new Vue({
+    	el:'#politics1',
+    	components:{
+    		'cNews':c3
+    	},
+    	data:{
+    		list:[{
+    			modelurl:'javascript:;',
+    			modelnews:'·哈财政部长：哈萨克斯坦是“一带一路”倡议…'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·税收合作推动“一带一路”共赢共享'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·中国与阿曼签署共建“一带一路”谅解备忘录'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·”一带一路”国际研讨班“走进湖北”'
+    		}]
+    	}
+    })
+
+    var sociology1 = new Vue({
+    	el:'#sociology1',
+    	components:{
+    		'cNews':c3
+    	},
+    	data:{
+    		list:[{
+    			modelurl:'javascript:;',
+    			modelnews:'·哈财政部长：哈萨克斯坦是“一带一路”倡议…'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·税收合作推动“一带一路”共赢共享'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·中国与阿曼签署共建“一带一路”谅解备忘录'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·”一带一路”国际研讨班“走进湖北”'
+    		}]
+    	}
+    })
+
+
+    var economy = new Vue({
+    	el:'#economy1',
+    	components:{
+    		'cNews':c3
+    	},
+    	data:{
+    		list:[{
+    			modelurl:'javascript:;',
+    			modelnews:'·哈财政部长：哈萨克斯坦是“一带一路”倡议…'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·税收合作推动“一带一路”共赢共享'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·中国与阿曼签署共建“一带一路”谅解备忘录'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·”一带一路”国际研讨班“走进湖北”'
+    		}]
+    	}
+    })
+
+
+    var history = new Vue({
+    	el:'#history1',
+    	components:{
+    		'cNews':c3
+    	},
+    	data:{
+    		list:[{
+    			modelurl:'javascript:;',
+    			modelnews:'·哈财政部长：哈萨克斯坦是“一带一路”倡议…'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·税收合作推动“一带一路”共赢共享'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·中国与阿曼签署共建“一带一路”谅解备忘录'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·”一带一路”国际研讨班“走进湖北”'
+    		}]
+    	}
+    })
+
+
+    var diplomacy = new Vue({
+    	el:'#diplomacy1',
+    	components:{
+    		'cNews':c3
+    	},
+    	data:{
+    		list:[{
+    			modelurl:'javascript:;',
+    			modelnews:'·哈财政部长：哈萨克斯坦是“一带一路”倡议…'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·税收合作推动“一带一路”共赢共享'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·中国与阿曼签署共建“一带一路”谅解备忘录'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·”一带一路”国际研讨班“走进湖北”'
+    		}]
+    	}
+    })
+
+
+    var culture = new Vue({
+    	el:'#culture1',
+    	components:{
+    		'cNews':c3
+    	},
+    	data:{
+    		list:[{
+    			modelurl:'javascript:;',
+    			modelnews:'·哈财政部长：哈萨克斯坦是“一带一路”倡议…'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·税收合作推动“一带一路”共赢共享'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·中国与阿曼签署共建“一带一路”谅解备忘录'
+    		},
+    		{
+    			modelurl:'javascript:;',
+    			modelnews:'·”一带一路”国际研讨班“走进湖北”'
+    		}]
+    	}
+    })
+
+
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评价体系库</title>
+</head>
+<body>
+	<div class = "mainPage">
+		 <div class  = "h1_nav">
+                <button class = "h1_zx nselect btnSelect">数据分析</button>
+            </div>
+            <div class = "topID">
+			<p>选择TIMERANGE</p>
+	    <div class = "timeRange">
+	    	<input value = "1970,2017" id = "timeSelect">
+	    </div>
+	    	<button id = "filterBtn">添加过滤器</button>
+	    </div>
+
+	    <div class = "middle2ID">
+            <div class = "selectbox">
+            	<p>维度</p>
+            	<select>
+            		<option>经济因素</option>
+            		<option>政治因素</option>
+            		<option>法律因素</option>
+            		<option>社会文化因素</option>
+            	</select>
+            </div>
+
+            <div class = "selectbox">
+            	<p>指标</p>
+            	<select>
+            		<option>人均国民收入(GNI)</option>
+            		<option>年经济增长率</option>
+            		<option>主权信用评级</option>
+            		<option>基尼基数</option>
+            	</select>
+            </div>
+
+            <div class = "selectbox">
+            	<p>国家/地区</p>
+            	<select>
+            		<option>中国</option>
+            		<option>印度</option>
+            		<option>越南</option>
+            		<option>巴基斯坦</option>
+            	</select>
+            </div>
+
+            <div class = "selectbox">
+            	<p>算法</p>
+            	<select>
+            		<option>均值法</option>
+            		<option>方差法</option>
+            	</select>
+            </div>           
+	</div>
+
+	<div id = "chartArea">
+	</div>
+
+	<div class = "chartResult">
+		<p>自“一带一路”倡议提出以来，中国与沿线国家的贸易建设整体上不尽如人意。2014年相比2013年涨幅明显，“一带一路”对外贸易指数为107.1，说明了“一带一路”战略对于外贸的推动力。而2015年对外贸易指数回落至98.7,2016年的对外贸易指数几乎和2016年持平。分析其原因，“一带一路”沿线国家多为经济发展水平并不高的发展中国家，大多数国家对外贸较为依赖，而2015年开始低迷的国际经济形势与贸易形势使得中国和“一带一路”沿线国家的进出口贸易下降较为明显。</p>
+	</div>
+
+	<div class = "bottomID">
+		<div class = "buttonField">
+			<button id = "download" class = "chartbtn">下载</button>
+			<button id = "print" class = "chartbtn">打印</button>
+			<button id = "export" class = "chartbtn">导出</button>
+			<button id = "share" class = "chartbtn">分享</button>
+		</div>
+	</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#timeSelect').jRange({
+			from:1960,
+			to:2050,
+			step:1,
+			format:'%s',
+			width:800,
+			showLabels:true,
+			isRange:true
+		});
+		})
+</script>
+
+<script type="text/javascript">
+	var chart = Highcharts.chart('chartArea',{
+		chart: {
+				type: 'column'
+		},
+		title: {
+				text: '国土面积与人口密度'
+		},
+		subtitle: {
+				text: 'Country Area and Population Density'
+		},
+		xAxis: {
+				categories: [
+						'一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'
+				],
+				crosshair: true
+		},
+		yAxis: {
+				min: 0,
+				title: {
+						text: '降雨量 (mm)'
+				}
+		},
+		tooltip: {
+				// head + 每个 point + footer 拼接成完整的 table
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+				'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+		},
+		plotOptions: {
+				column: {
+						borderWidth: 0
+				}
+		},
+		series: [{
+				name: '东京',
+				data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+		}, {
+				name: '纽约',
+				data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+		}, {
+				name: '伦敦',
+				data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+		}, {
+				name: '柏林',
+				data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+		}]
+});
+
+
+
+        $('#download').click(function () {
+                var chart = $('#chartArea').highcharts();
+                chart.exportChart();
+        });
+
+
+        $('#print').click(function () {
+                var chart = $('#chartArea').highcharts();
+                chart.print();
+        });
+
+        $('#export').click(function(){
+                var chart = $('#chartArea').highcharts();
+                chart.exportChart({type:"image/png"});
+        });
+
+</script>
+</html>

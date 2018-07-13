@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>详情页</title>
+</head>
+<body>
+	<div class = "mainPage">
+		<nav>
+			<ul class = "expsecondaryNav">
+				<li><a href = "#silkRoad">最新动态</a></li> /
+				<li>由全国社科工作办主办、浙江大学区域协调发展研究中心和社科院</li>
+			</ul>
+	</nav>
+	<div id = "news">
+		<d-news :newstitle = "newstitle" :img1src = "img1src" :section1 = "section1" :img2src = "img2src" :section2 = "section2" :img3src = "img3src" :section3 = "section3" :img4src = "img4src" :section4 = "section4"></d-news>
+	</div>
+	</div>	
+	<!-------------------VUE模板------------------------>
+	<template id = "details">
+		<div>
+			<article>
+				<h2 class = "d_h2">{{newstitle}}</h2>
+			</article>
+			<img :src = "img1src">
+			<section class = "d_section">
+				{{section1}}
+			</section>
+			<img :src = "img2src">
+			<section class = "d_section">
+				{{section2}}
+			</section class = "d_section">
+            <img :src = "img3src">
+            <section class = "d_section">
+            	{{section3}}
+            </section class = "d_section">
+            <img :src = "img4src">
+            <section class = "d_section">
+            	{{section4}}
+            </section>
+		</div>
+	</template>
+	<!-----------------VUE模板结束----------------------->
+</body>
+
+<script type="text/javascript">
+	var d1 = {
+		template:'#details',
+		props:['newstitle','img1src','section1','img2src','section2','img3src','section3','img4src','section4' ]
+	}
+
+	var dt = new Vue({
+		el:'#news',
+		components:{
+			'dNews':d1
+		},
+		data:{
+			newstitle:'由全国社科工作办主办、浙江大学区域协调发展研究中心和社科院承办的“一带一路”重大研究专项成果交流暨工作推进会在浙大召开',
+			img1src:'',
+			section1:'2018年6月14日，由全国哲学社会科学工作办公室主办，浙江大学区域协调发展研究中心、社会科学研究院承办的“一带一路”重大研究专项成果交流暨工作推进会在浙江大学召开。',
+			img2src:'../images/dn.jpg',
+			section2:'推进“一带一路”建设工作领导小组办公室综合组副组长、国家发展改革委西部开发司副司长翟东升，全国哲学社会科学工作办公室副主任操晓理，浙江大学常务副校长任少波，浙江省社会科学界联合会副主席邵清出席并讲话，会议开幕式由浙江大学发展委员会副主席、区域协调发展研究中心主任、中国西部发展研究院院长周谷平主持。',
+			img3src:'../images/zds.jpg',
+			section3:'',
+			img4src:'',
+			section4:''
+		}
+	})
+</script>
+</html>

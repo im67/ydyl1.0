@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+</head>
+<body>
+	<div id = "mainPage">
+		<!--轮播图开始-->
+		<div class = "shuffling">
+		<ul id = "banner">
+				<li class = "item1"><a href = "#"><img src = "../images/1.jpg"></a></li>
+				<li class = "item2"><a href = "#"><img src = "../images/2.jpg"></a></li>
+				<li class = "item3"><a href = "#"><img src = "../images/3.jpg"></a></li>
+				<li class = "item4"><a href = "#"><img src = "../images/4.jpg"></a></li>
+				<li class = "item5"><a href = "#"><img src = "../images/5.jpg"></a></li>
+				<li class = "item6"><a href = "#"><img src = "../images/1.jpg"></a></li>
+			</ul>
+		</div>
+		<div id = "bannerChange">
+			<ul id = "bannerChange1">
+				<li class = "onfocus"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			</div>
+            <div class = "imgintroduce">
+                <p id = "intro"></p>
+            </div>
+		<!--轮播图结束-->
+
+        <!--新闻部分开始-->
+        <div class = "homePageLeft">
+         <div class = "h1_top">
+            <div class  = "h1_nav">
+                <button class = "h1_zx nselect">最新动态</button> | 
+                <button class = "h1_gn nselect">国内外动态</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+            <ul id = "h1template">
+            <li v-for = "item of list"><lastnews :url = "item.url" :title = "item.title" :time = "item.time"></lastnews>
+            </li>
+            </ul>
+             <ul id = "h2template">
+            <li v-for = "item of list"><gnnews :url = "item.url" :title = "item.title" :time = "item.time"></gnnews>
+            </li>
+            </ul>
+            </div>
+
+
+            <div class = "h1_middle">
+            <div class  = "h1_nav">
+                <button class = "h1_xm nselect">项目案例</button> | 
+                <button class = "h1_zq nselect">中企资讯</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+            <div class = "xmal">
+            <div class = "h1_ml">
+            <div id = "middle_left">
+                <middlephotonews :imgurl = "imgurl" :imgsrc = "imgsrc" :imgtitle = "imgtitle"></middlephotonews>
+            </div>
+                <ul id = "middle_leftnews">
+                <li v-for = "item of list"><middlenews :url = "item.url" :title = "item.title"></middlenews>
+                </li>
+            </ul>
+            </div>
+
+             <div class = "h1_mr">
+            <div id = "middle_right">
+                <middlephotonews :imgurl = "imgurl" :imgsrc = "imgsrc" :imgtitle = "imgtitle"></middlephotonews>
+            </div>
+                <ul id = "middle_rightnews">
+                <li v-for = "item of list"><middlenews :url = "item.url" :title = "item.title"></middlenews>
+                </li>
+            </ul>
+            </div>
+        </div>
+
+
+         <div class = "zqzx">
+            <div class = "h1_ml">
+            <div id = "middle_left_zq">
+                <middlephotonews :imgurl = "imgurl" :imgsrc = "imgsrc" :imgtitle = "imgtitle"></middlephotonews>
+            </div>
+                <ul id = "middle_leftnews_zq">
+                <li v-for = "item of list"><middlenews :url = "item.url" :title = "item.title"></middlenews>
+                </li>
+            </ul>
+            </div>
+
+             <div class = "h1_mr">
+            <div id = "middle_right_zq">
+                <middlephotonews :imgurl = "imgurl" :imgsrc = "imgsrc" :imgtitle = "imgtitle"></middlephotonews>
+            </div>
+                <ul id = "middle_rightnews_zq">
+                <li v-for = "item of list"><middlenews :url = "item.url" :title = "item.title"></middlenews>
+                </li>
+            </ul>
+            </div>
+        </div>
+            </div> 
+
+
+            <div class = "h1_bottom">
+                <div class  = "h1_nav">
+                <button class = "h1_gj nselect">丝路国际</button> | 
+                <button class = "h1_zg nselect">丝路中国</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+            <div class = "silkgj">
+            <div id = "imgnews_gj">
+                <silkroad :url = "url" :imgurl = "imgurl" :title = "title" :introduce = "introduce"></silkroad>
+            </div>
+            <div class = "slgj">
+                <ul id = "slgj_news" >
+                <li v-for = "item of list"><gjnews :url = "item.url" :title = "item.title" :time = "item.time"></gjnews>
+                </li>
+            </ul>
+            </div>
+        </div>
+
+        <div class = "silkzg">
+            <div id = "imgnews_zg">
+                <silkroad :url = "url" :imgurl = "imgurl" :title = "title" :introduce = "introduce"></silkroad>
+            </div>
+            <div class = "slzg">
+                <ul id = "slzg_news" >
+                <li v-for = "item of list"><gjnews :url = "item.url" :title = "item.title" :time = "item.time"></gjnews>
+                </li>
+            </ul>
+            </div>
+        </div>
+            </div>         
+         </div>
+         <div class = "homePageRight">
+            <div class = "right_top">
+                <div class = "h1_nav">
+                <button class = "nselect btnSelect">热点专题</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+            <a href = "#"><img class = "imgs" src = "../images/hotview.png"></a>
+            <ul id = "hotview">
+                <li v-for = "item of list"><a :href = "item.url"><p>{{item.title}}</p></a></li>
+            </ul>
+            </div>
+
+            <div class = "right_middle">
+                <div class = "h1_nav">
+                <button class = "nselect btnSelect">热门搜索</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+            <a href = "#">
+                <img class = "imgs1" src = "../images/hotsearch.png">
+                <p class = "imgp">韩正主持召开“一带一路小组会议”</p>        
+            </a>
+            <ul id = "hotresearch">
+                <li v-for = "item of list"><a :href = "item.url"><p>{{item.title}}</p></a></li>
+            </ul>
+            </div>
+
+            <div class = "right_bottom">
+                <div class = "h1_nav">
+                <button class = "nselect btnSelect">文献下载排行</button>
+                <button id = "moreinfo" class = "morebtn">more</button>
+            </div>
+            <ul id = "downloadRank">
+                <li v-for = "item of list"><a :href = "item.url"><p>{{item.title}}</p></a></li>
+            </ul>
+            </div>
+         </div>
+        </div>
+        <!--新闻部分结束-->
+
+	<!-----------VUE模板------------>
+    <template id = "banner">
+       <a :href = "url"><img :src = "imgsrc" v:title = "title"></a>    
+    </template>
+
+	<template id = "h1">
+        <a v-bind:href = "url"><p class = "p1">{{title}}</p><p class = "p2">{{time}}</p></a>
+    </template>
+
+
+    <template id = "h2">
+        <div>
+            <a v-bind:href = "imgurl"><img class = "middle_photo" v-bind:src = "imgsrc"><div class = "mask"><p>{{imgtitle}}</p></div></a>
+        </div>
+    </template>
+
+
+    <template id = "h3">
+        <a v-bind:href = "url"><p class = "hp1">{{title}}</p></a>
+    </template>
+
+    <template id = "h4">
+        <a v-bind:href = "url"><img class = "silkimg" v-bind:src = "imgurl"><div class= "silkd"><h3 class = "silkh">{{title}}</h3><p class = "silkp">{{introduce}}</p></div></a>
+    </template>
+
+    <!-----------VUE模板结束----------->
+</body>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('.h1_zx').addClass("btnSelect"); 
+        $('.h1_xm').addClass("btnSelect");
+        $('.h1_gj').addClass("btnSelect");
+        $("#h1template").show();
+        $("#h2template").hide();
+        $('.xmal').show();
+        $('.zqzx').hide();
+        $('.silkgj').show();
+        $('.silkzg').hide();
+    })
+
+   $('.h1_gn').mouseover(function(){
+        $('.h1_gn').addClass("btnSelect");
+        $('.h1_zx').removeClass("btnSelect");
+        $("#h2template").show();
+        $("#h1template").hide();
+    });
+
+    $('.h1_zx').mouseover(function(){
+       $('.h1_zx').addClass("btnSelect");
+       $('.h1_gn').removeClass("btnSelect");
+       $("#h1template").show();
+       $("#h2template").hide();
+       });
+
+    $('.h1_xm').mouseover(function(){
+       $('.h1_xm').addClass("btnSelect");
+       $('.h1_zq').removeClass("btnSelect");
+       $(".zqzx").hide();
+       $(".xmal").show();
+       });
+
+    $('.h1_zq').mouseover(function(){
+       $('.h1_zq').addClass("btnSelect");
+       $('.h1_xm').removeClass("btnSelect");
+       $(".xmal").hide();
+       $(".zqzx").show();
+       });
+
+
+    $('.h1_gj').mouseover(function(){
+       $('.h1_gj').addClass("btnSelect");
+       $('.h1_zg').removeClass("btnSelect");
+       $(".silkzg").hide();
+       $(".silkgj").show();
+       });
+
+
+    $('.h1_zg').mouseover(function(){
+       $('.h1_zg').addClass("btnSelect");
+       $('.h1_gj').removeClass("btnSelect");
+       $(".silkgj").hide();
+       $(".silkzg").show();
+       });
+
+        var lastnews = {
+        template:'#h1',
+        props :['url','title','time']
+    }
+
+        var middlephotonews = {
+            template:'#h2',
+            props:['imgurl','imgsrc','imgtitle']
+        }
+
+
+        var middlenews = {
+            template:'#h3',
+            props:['url','title']
+        }
+
+
+        var silkroad = {
+            template:'#h4',
+            props:['url','imgurl','title','introduce']
+        }
+
+        var banner = {
+            template:'#banner',
+            props:['url','imgsrc']
+        }
+
+
+    var h1 = new Vue({
+        el:'#h1template',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'·【以色列】红线项目三条主隧洞贯通 获赞“中国朋友了不起”',
+                time:'2018-06-26'
+            },
+            {   
+                url:'javascript:;',
+                title:"·【阿根廷】中企承建贝尔格拉诺货运铁路项目顺利推进",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:"·【沙特】中国铁建再获沙特麦加轻轨运营合同",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:"·【乌兹别克斯坦】中企承建乌兹别克斯坦沙尔贡煤矿开工",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:"·【拉美】受制资金和基础设施 “一带一路”成中拉合作新“风口",
+                time:'2018-06-26' 
+            },{   
+                url:'javascript:;',
+                title:"·【巴拿马】建交一周年：签署20多项合作协议",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:"·【法国】参议院：法国应在“一带一路”建设中发挥积极作用",
+                time:'2018-06-26' 
+            }]
+        
+        }
+    })
+
+
+    var h2 = new Vue({
+        el:'#h2template',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:"·【法国】参议院：法国应在“一带一路”建设中发挥积极作用",
+                time:'2018-06-26'
+            },
+            {   
+                url:'javascript:;',
+                title:"·【阿根廷】中企承建贝尔格拉诺货运铁路项目顺利推进",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:"·【沙特】中国铁建再获沙特麦加轻轨运营合同",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:"·【乌兹别克斯坦】中企承建乌兹别克斯坦沙尔贡煤矿开工",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:"·【拉美】受制资金和基础设施 “一带一路”成中拉合作新“风口",
+                time:'2018-06-26' 
+            },{   
+                url:'javascript:;',
+                title:"·【巴拿马】建交一周年：签署20多项合作协议",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:'·【以色列】红线项目三条主隧洞贯通 获赞“中国朋友了不起”',
+                time:'2018-06-26' 
+            }]
+        }
+    })
+
+
+    
+    var h3 = new Vue({
+        el:'#middle_left',
+        data:{
+            imgurl:'javascript:;',
+            imgsrc:'../images/news.jpg',
+            imgtitle:'“一带一路”国际合作重大工程项目盘点'
+        }
+    })
+
+    var h5 = new Vue({
+        el:'#middle_right',
+        data:{
+            imgurl:'javascript:;',
+            imgsrc:'../images/news2.jpg',
+            imgtitle:'境外经贸合作区：“一带一路”双赢平台'
+        }
+    })
+
+
+var h4 = new Vue({
+        el:'#middle_leftnews',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'·以色列红线项目三条主隧洞贯通 获赞“中国...'
+            },
+            {
+                url:'javascript:;',
+                title:'·中国铁建再获沙特麦加轻轨运营合同'
+            },
+            {
+                url:'javascript:;',
+                title:'·中企承建外高加索地区最长铁路隧道实现贯通'
+            }
+            ,{
+                url:'javascript:;',
+                title:'·中企在越南承建的首座斜拉桥通车 获赞“崭...'
+            },
+            {
+                url:'javascript:;',
+                title:'·中企承建巴基斯坦拉合尔橙线轨道项目试运行'
+            },
+            {
+                url:'javascript:;',
+                title:'·孟加拉国帕德玛大桥项目签订贷款协议 预算...'
+            }]
+        }
+    })
+
+
+    var h6 = new Vue({
+        el:'#middle_rightnews',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'·中阿产能合作示范园将获全金融牌照'
+            },
+            {
+                url:'javascript:;',
+                title:'·中国企业签约建设克罗地亚跨海大桥项目'
+            },
+            {
+                url:'javascript:;',
+                title:'·中企承建巴基斯坦水电站项目并网发电'
+            }
+            ,{
+                url:'javascript:;',
+                title:'·中企将在乌克兰中部建设大型太阳能电站'
+            },
+            {
+                url:'javascript:;',
+                title:'·中埃合建光缆厂投产 助推埃及加速进入数字...'
+            },
+            {
+                url:'javascript:;',
+                title:'·比雷埃夫斯港首迎2万标准箱级集装箱船'
+            }]
+        }
+    })
+
+
+    var h7 = new Vue({
+        el:'#middle_leftnews_zq',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'·中阿产能合作示范园将获全金融牌照'
+            },
+            {
+                url:'javascript:;',
+                title:'·中国企业签约建设克罗地亚跨海大桥项目'
+            },
+            {
+                url:'javascript:;',
+                title:'·中企承建巴基斯坦水电站项目并网发电'
+            }
+            ,{
+                url:'javascript:;',
+                title:'·中企将在乌克兰中部建设大型太阳能电站'
+            },
+            {
+                url:'javascript:;',
+                title:'·中埃合建光缆厂投产 助推埃及加速进入数字...'
+            },
+            {
+                url:'javascript:;',
+                title:'·比雷埃夫斯港首迎2万标准箱级集装箱船'
+            }]
+        }
+    })
+
+
+    var h8 = new Vue({
+        el:'#middle_rightnews_zq',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'·以色列红线项目三条主隧洞贯通 获赞“中国...'
+            },
+            {
+                url:'javascript:;',
+                title:'·中国铁建再获沙特麦加轻轨运营合同'
+            },
+            {
+                url:'javascript:;',
+                title:'·中企承建外高加索地区最长铁路隧道实现贯通'
+            }
+            ,{
+                url:'javascript:;',
+                title:'·中企在越南承建的首座斜拉桥通车 获赞“崭...'
+            },
+            {
+                url:'javascript:;',
+                title:'·中企承建巴基斯坦拉合尔橙线轨道项目试运行'
+            },
+            {
+                url:'javascript:;',
+                title:'·孟加拉国帕德玛大桥项目签订贷款协议 预算...'
+            }]
+        }
+    })
+
+
+    var h9 = new Vue({
+        el:'#middle_right_zq',
+        data:{
+            imgurl:'javascript:;',
+            imgsrc:'../images/news.jpg',
+            imgtitle:'“一带一路”国际合作重大工程项目盘点'
+        }
+    })
+
+    var h10 = new Vue({
+        el:'#middle_left_zq',
+        data:{
+            imgurl:'javascript:;',
+            imgsrc:'../images/news2.jpg',
+            imgtitle:'境外经贸合作区：“一带一路”双赢平台'
+        }
+    })
+
+
+    var h11 = new Vue({
+        el:'#imgnews_gj',
+        data:{
+            url:'javascript:;',
+            imgurl: '../images/gj.jpg',
+            title:'第72届联大主席：“一带一路”助推联合国可持续发展议程',
+            introduce:'“中国经济增长带来的益处并不局限于其国界。作为一个奉行多边主义的国家，中国正在通过“一带一路”倡议分享全球经济发展和科技进步带来的成果...'
+        }
+    })
+
+    var h12 = new Vue({
+        el:'#imgnews_zg',
+        data:{
+            url:'javascript:;',
+            imgurl: '../images/zg.jpg',
+            title:'王文：“一带一路”建设与上合组织存在天然“亲缘”关系',
+            introduce:'6月9日-10日，上海合作组织成员国元首理事会第十八次会议将在中国青岛举行。青岛峰会，是中共十九大后上合...'
+        }
+    })
+
+
+    var h13 = new Vue({
+        el:'#slgj_news',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'土耳其外长恰武什奥卢： 我们完全支持“一带一路”',
+                time:'2018-06-26'
+            },
+            {   
+                url:'javascript:;',
+                title:"多米尼加官员：多中两国在“一带一路”国际合作中大有可为",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:"希腊议长：希中合作潜力巨大 支持“一带一路”倡议 ",
+                time:'2018-06-26' 
+            }]
+        
+        }
+    })
+
+    var h14 = new Vue({
+        el:'#slzg_news',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'土耳其外长恰武什奥卢： 我们完全支持“一带一路”',
+                time:'2018-06-26'
+            },
+            {   
+                url:'javascript:;',
+                title:"多米尼加官员：多中两国在“一带一路”国际合作中大有可为",
+                time:'2018-06-26' 
+            },
+            {   
+                url:'javascript:;',
+                title:"希腊议长：希中合作潜力巨大 支持“一带一路”倡议 ",
+                time:'2018-06-26' 
+            }]
+        
+        }
+    })
+
+    var h15 = new Vue({
+        el:'#hotview',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'·“一带一路”服务热线'
+            },
+            {
+                url:'javascript:;',
+                title:'·丝路新闻摘要：每天1分钟 丝路全知道'
+            }]
+        }
+    })
+
+    var h16 = new Vue({
+        el:'#hotresearch',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'·中巴经济走廊最大交通基础设施项目...'
+            },
+            {
+                url:'javascript:;',
+                title:'·印媒：中国修建的汉班托塔港不是无…'
+            },
+            {
+                url:'javascript:;',
+                title:'·巴基斯坦4月份发电量增48% 新增电...'
+            },
+            {
+                url:'javascript:;',
+                title:'·中企承建外高加索地区最长铁路隧道…'
+            },
+            {
+                url:'javascript:;',
+                title:'·好事不愿说出事不敢说 中企“走出去...'
+            }]
+        }
+    })
+
+    
+    var h17 = new Vue({
+        el:'#downloadRank',
+        data:{
+            list:[{
+                url:'javascript:;',
+                title:'·中巴经济走廊最大交通基础设施项目...'
+            },
+            {
+                url:'javascript:;',
+                title:'·印媒：中国修建的汉班托塔港不是无…'
+            },
+            {
+                url:'javascript:;',
+                title:'·巴基斯坦4月份发电量增48% 新增电...'
+            },
+            {
+                url:'javascript:;',
+                title:'·中企承建外高加索地区最长铁路隧道…'
+            },
+            {
+                url:'javascript:;',
+                title:'·好事不愿说出事不敢说 中企“走出去...'
+            }]
+        }
+    })
+
+
+
+
+
+    var zx = new Vue({
+            el:'#h1template',
+            components:{
+                'lastnews':lastnews
+            }
+        });
+
+    var gn = new Vue({
+         el:'#h2template',
+            components:{
+                'gnnews':lastnews
+            }
+    });
+
+    var xm1 = new Vue({
+        el:'#middle_left',
+            components:{
+                'middlephotonews':middlephotonews
+        }
+    });
+
+    var xm2 = new Vue({
+        el:'#middle_right',
+            components:{
+                'middlephotonews':middlephotonews
+        }
+    });
+
+
+    var mn1 = new Vue({
+        el:'#middle_leftnews',
+        components:{
+            'middlenews':middlenews
+        }
+    });
+
+    var mn2 = new Vue({
+        el:'#middle_rightnews',
+        components:{
+            'middlenews':middlenews
+        }
+    });
+
+
+    var zq1 = new Vue({
+        el:'#middle_rightnews_zq',
+        components:{
+            'middlenews':middlenews
+        }
+    })
+
+
+    var zq2 = new Vue({
+        el:'#middle_leftnews_zq',
+        components:{
+            'middlenews':middlenews
+        }
+    });
+
+    var zq3 = new Vue({
+        el:'#middle_left_zq',
+            components:{
+                'middlephotonews':middlephotonews
+        }
+    });
+
+    var zq4 = new Vue({
+        el:'#middle_right_zq',
+            components:{
+                'middlephotonews':middlephotonews
+        }
+    });
+
+
+    var sr = new Vue({
+        el:'#imgnews_gj',
+            components:{
+                'silkroad':silkroad
+            }
+    })
+
+    var src = new Vue({
+        el:'#imgnews_zg',
+            components:{
+                'silkroad':silkroad
+        }
+    })
+
+    var srn = new Vue({
+        el:'#slgj_news',
+        components:{
+            'gjnews':lastnews
+        }
+    })
+
+    var srn = new Vue({
+        el:'#slzg_news',
+        components:{
+            'gjnews':lastnews
+        }
+    })
+
+
+
+
+</script>
+</html>
